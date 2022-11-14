@@ -99,5 +99,20 @@ function renderText() {
 renderText();
 
 
+// Creates Event listeners for save buttons
+for (let i = 0; i < hoursAvailable.length; i++) {
+    let btns = document.getElementById('btnEvent' + i)
+    btns.addEventListener('click', function (event) {
+        event.preventDefault();
+        let textAreaTime = document.getElementById('textArea' + i)
+        let textOfTime = textAreaTime.value
+        storeTodo(("Todo" + i), textOfTime)
+    });
+};
+
+// Stores texts to local storage
+function storeTodo(whichArea, text) {
+    localStorage.setItem(whichArea, JSON.stringify(text))
+};
 
 
