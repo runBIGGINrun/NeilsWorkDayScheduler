@@ -36,3 +36,25 @@ function writeHours() {
         //  Adds ID's
         textArea.id = 'textArea' + i;
         buttonEl.id = 'btnEvent' + i;
+
+        //  Constructs section
+        divEl.append(divEl2);
+        divEl.append(textArea);
+        divEl.append(buttonEl);
+        buttonEl.append(iconEl);
+        hoursContainer.appendChild(divEl);
+
+        let expectedHour = i + 9;
+        console.log(expectedHour);
+
+        // Checks and adds correct class depending on the hour
+        if (expectedHour == thisHour) {
+            textArea.classList.add('present')
+        } else if (expectedHour < thisHour) {
+            textArea.classList.add('past')
+        } else if (expectedHour > thisHour) {
+            textArea.classList.add('future')
+        }
+
+    }
+};
