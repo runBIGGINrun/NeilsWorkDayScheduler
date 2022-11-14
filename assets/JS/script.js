@@ -84,3 +84,20 @@ function fadeIn() {
     }
   }, 100);
 }
+
+// Loop checking and writing texts from local storage
+function renderText() {
+    for (let i = 0; i < hoursAvailable.length; i++) {
+        let storedTextNumbers = "Todo" + i;
+        let storedTexts = JSON.parse(localStorage.getItem(storedTextNumbers));
+
+        let texts = document.getElementById('textArea' + i);
+        texts.value = storedTexts;
+    }
+};
+
+renderText();
+
+
+
+
