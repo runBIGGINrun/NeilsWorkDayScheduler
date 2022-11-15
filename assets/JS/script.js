@@ -69,7 +69,6 @@ function writeHours() {
     }
   }
 }
-
 writeHours();
 
 function fadeIn() {
@@ -87,32 +86,29 @@ function fadeIn() {
 
 // Loop checking and writing texts from local storage
 function renderText() {
-    for (let i = 0; i < hoursAvailable.length; i++) {
-        let storedTextNumbers = "Todo" + i;
-        let storedTexts = JSON.parse(localStorage.getItem(storedTextNumbers));
+  for (let i = 0; i < hoursAvailable.length; i++) {
+    let storedTextNumbers = "Todo" + i;
+    let storedTexts = JSON.parse(localStorage.getItem(storedTextNumbers));
 
-        let texts = document.getElementById('textArea' + i);
-        texts.value = storedTexts;
-    }
-};
+    let texts = document.getElementById("textArea" + i);
+    texts.value = storedTexts;
+  }
+}
 
 renderText();
 
-
 // Creates Event listeners for save buttons
 for (let i = 0; i < hoursAvailable.length; i++) {
-    let btns = document.getElementById('btnEvent' + i)
-    btns.addEventListener('click', function (event) {
-        event.preventDefault();
-        let textAreaTime = document.getElementById('textArea' + i)
-        let textOfTime = textAreaTime.value
-        storeTodo(("Todo" + i), textOfTime)
-    });
-};
+  let btns = document.getElementById("btnEvent" + i);
+  btns.addEventListener("click", function (event) {
+    event.preventDefault();
+    let textAreaTime = document.getElementById("textArea" + i);
+    let textOfTime = textAreaTime.value;
+    storeTodo("Todo" + i, textOfTime);
+  });
+}
 
 // Stores texts to local storage
 function storeTodo(whichArea, text) {
-    localStorage.setItem(whichArea, JSON.stringify(text))
-};
-
-
+  localStorage.setItem(whichArea, JSON.stringify(text));
+}
